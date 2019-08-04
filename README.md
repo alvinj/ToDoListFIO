@@ -55,6 +55,24 @@ add wake up
 Hopefully everything after that is relatively easy to understand.
 
 
+## The source code
+
+If you read my book, [Functional Programming, Simplified](https://alvinalexander.com/scala/functional-programming-simplified-book), hopefully most of the source code
+will be understandable. The big difference between what I show in the
+book and this application is the use of the Scalaz library.
+
+In short:
+
+- `ToDoListFIO extends App` is where the action starts
+- The `mainLoop` is the application’s main loop
+- This line of code converts the user’s input into a `Command`:
+```scala
+cmd   <- getLine.map(Command.parse _)
+```
+
+If you read my book, I hope everything else makes sense.
+
+
 ## Creating a single, executable JAR file
 
 To create a single, executable JAR file, using the `sbt assembly` command,
