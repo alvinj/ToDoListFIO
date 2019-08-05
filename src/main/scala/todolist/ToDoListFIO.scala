@@ -15,7 +15,7 @@ object ToDoListFIO extends App {
      * Note that datafile is used as a closured-thing. Not horrible in this situation.
      */
     val datafile = "/Users/al/Projects/Scala/FunctionalProgramming/ToDoList2/todo.dat"
-    val prompt = "Command ('h' for help, 'q' to quit)\n==>"
+    val prompt = "Command ('h' for help, 'q' to quit)\n==> "
 
     /**
      * As its name implies, this is the main loop.
@@ -55,7 +55,7 @@ object ToDoListFIO extends App {
             help
         }
         case Unknown => {
-            IO(println("Unknown (sorry, i don’t know what you want)"))
+            IO(println("Unknown (type ’h’ for help)"))
         }
     }
 
@@ -91,7 +91,7 @@ object ToDoListFIO extends App {
      * `taskToRemove` will be based on 1,2,3.
      * however, the list will be zero-based.
      */
-    def remove(taskNumToRemove: Int) = {
+    def remove(taskNumToRemove: Int): IO[Unit] = {
         val currentTasks = readFile(datafile).unsafePerformIO.toVector
         val remainingTasks = CollectionUtils.removeElementFromSequence(currentTasks, taskNumToRemove-1)
         val remainingTasksAsString = remainingTasks.mkString("\n")
