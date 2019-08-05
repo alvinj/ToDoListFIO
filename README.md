@@ -96,6 +96,11 @@ image that starts up almost immediately, which is really nice
 for a command-line application like this.
 
 
+## More information
+
+For more information, see [this web page](https://alvinalexander.com/scala/functional-programming-to-do-list-application).
+
+
 All the best,  
 Alvin Alexander  
 https://alvinalexander.com
